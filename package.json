@@ -19,7 +19,7 @@
     "eject": "react-scripts eject"
   },
   "lint-staged": {
-    "*.js": "staged --fix"
+    "*.js": "standard --fix"
   },
   "husky": {
     "hooks": {
