@@ -23,7 +23,7 @@ export default function User (props) {
       title: 'Avatar',
       field: 'avatar_url',
       render: rowData => (
-        <img src={rowData.avatar_url} style={{ width: 40, borderRadius: '50 % ' }} />
+        <img src={rowData.avatar_url} alt={rowData.login} style={{ width: 40, borderRadius: '50 % ' }} />
       )
     },
     { title: 'Nome', field: 'name' },
