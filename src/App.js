@@ -8,7 +8,6 @@ import Modal from '@material-ui/core/Modal'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Link from '@material-ui/core/Link'
-import Fade from '@material-ui/core/Fade'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import User from './components/User.js'
 import axios from 'axios'
@@ -149,19 +148,19 @@ export default function App () {
       <CssBaseline />
       <main>
         <div className={classes.heroContent}>
-          <Container maxWidth='sm'>
+          <Container maxWidth='lg'>
             <Typography component='h1' variant='h2' align='center' color='textPrimary' gutterBottom>
-              Teste Prático WA
+              Teste Wa Project
             </Typography>
             <Typography variant='h5' align='center' color='textSecondary' paragraph>
               Este é um teste prático em react, onde exibo uma lista de 10 usuários do github, seguindo as instruções contidas no e-mail.
-              Tentei fazer de forma simples e prática, por isso utilizei o Material-ui e a Material table.
+              Tentei fazer de forma simples e prática com um pouquinho de carisma ( risos ), por isso utilizei o Material-ui e a Material table.
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify='center'>
                 <Grid item>
                   <Button variant='contained' color={showDeleted ? 'primary' : 'secondary'} onClick={() => showDeleted ? setShowDeleted(false) : setShowDeleted(true)}>
-                    {!showDeleted ? 'Ver usuários excluidos' : 'Voltar para lista de usuários ativos'}
+                    {!showDeleted ? 'Ver usuários excluidos' : 'Ver Usuários ativos'}
                   </Button>
                 </Grid>
               </Grid>
@@ -170,19 +169,22 @@ export default function App () {
         </div>
 
         {/* Chamada do componente User */}
-        <Container className={classes.cardGrid} maxWidth='md'>
-          <User data={showDeleted ? deletedUsers : users} loading={loading.open} showDeleted={showDeleted} handleDelete={(user) => deleteUser(user)} />
+        <Container className={classes.cardGrid} maxWidth='lg'>
+          <User
+            data={showDeleted ? deletedUsers : users}
+            loading={loading.open}
+            showDeleted={showDeleted}
+            handleDelete={(user) => deleteUser(user)}
+          />
         </Container>
       </main>
 
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant='h6' align='center' gutterBottom>
-          Made to the sound of Vintage Culture and Barões da Pisadinha ♫.
+          Made to the sound of Vintage Culture ♫.
         </Typography>
-        <Typography variant='subtitle1' align='center' color='textSecondary' component='p'>
-          Algo para dar um propósito ao footer!
-        </Typography>
+        <Typography variant='subtitle1' align='center' color='textSecondary' component='p' />
         <Copyright />
       </footer>
       {/* End footer */}
@@ -196,12 +198,11 @@ export default function App () {
         onClose={() => setLoading({ open: false })}
         closeAfterTransition
       >
-        <Fade in={loading.open}>
-          <div className={classes.paper}>
-            <LinearProgress />
-            <p id='transition-modal-description'>{loading.msg}.</p>
-          </div>
-        </Fade>
+
+        <div className={classes.paper}>
+          <LinearProgress />
+          <p id='transition-modal-description'>{loading.msg}.</p>
+        </div>
       </Modal>
 
       {/* corpo do snackbar */}
